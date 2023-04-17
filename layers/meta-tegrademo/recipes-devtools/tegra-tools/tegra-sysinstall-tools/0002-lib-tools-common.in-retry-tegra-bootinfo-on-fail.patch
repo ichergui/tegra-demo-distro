@@ -1,0 +1,28 @@
+From 5cb5490c80d0ecd2a2e7892c7e73faf84d0f4700 Mon Sep 17 00:00:00 2001
+From: Ilies CHERGUI <ilies.chergui@gmail.com>
+Date: Sat, 8 Apr 2023 15:27:11 +0100
+Subject: [PATCH 2/5] lib/tools-common.in: retry tegra-bootinfo on fail
+
+Retry tegra-bootinfo on first failure
+
+Signed-off-by: Ilies CHERGUI <ilies.chergui@gmail.com>
+---
+ lib/tools-common.in | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/lib/tools-common.in b/lib/tools-common.in
+index 192a093..65c0fd1 100644
+--- a/lib/tools-common.in
++++ b/lib/tools-common.in
+@@ -587,6 +587,8 @@ update_bootloader() {
+ 	    echo -n "Initializing bootinfo area..."
+ 	    if tegra-bootinfo --initialize --force-initialize; then
+ 		echo " [OK]"
++	    elif tegra-bootinfo --initialize --force-initialize; then
++		echo " [OK - 2nd try]"
+ 	    else
+ 		gdb -ex=r --args tegra-bootinfo --initialize --force-initialize; strace tegra-bootinfo --initialize --force-initialize
+ 		echo " [FAIL]"
+-- 
+2.25.1
+

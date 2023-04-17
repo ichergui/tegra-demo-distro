@@ -1,0 +1,37 @@
+From 4ead464fc1b69349ba2f54224597fc216e8fe3ca Mon Sep 17 00:00:00 2001
+From: Ilies CHERGUI <ilies.chergui@gmail.com>
+Date: Sat, 8 Apr 2023 15:23:58 +0100
+Subject: [PATCH 1/5] lib/tools-common.in: gdb tegra-buildinfo
+
+On failure, drop into shell so we can use gdb and strace for tegra-buildinfo
+to attempt to diagnose the Segmentation Fault
+
+Signed-off-by: Ilies CHERGUI <ilies.chergui@gmail.com>
+---
+ lib/tools-common.in | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/lib/tools-common.in b/lib/tools-common.in
+index 4bc6761..192a093 100644
+--- a/lib/tools-common.in
++++ b/lib/tools-common.in
+@@ -2,6 +2,8 @@
+ # Common functions for tegra installer scripts
+ # Copyright (c) 2019-2020, Matthew Madison
+ 
++set -x
++
+ declare -A EMMC_PARTITIONS CRYPT_PARTITIONS MKFS_ARGS PARTINDEX
+ 
+ PARTITIONS_TO_FORMAT=(DATA EXTRA LOGS UDA)
+@@ -586,6 +588,7 @@ update_bootloader() {
+ 	    if tegra-bootinfo --initialize --force-initialize; then
+ 		echo " [OK]"
+ 	    else
++		gdb -ex=r --args tegra-bootinfo --initialize --force-initialize; strace tegra-bootinfo --initialize --force-initialize
+ 		echo " [FAIL]"
+ 		rc=1
+ 	    fi
+-- 
+2.25.1
+
