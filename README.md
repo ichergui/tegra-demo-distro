@@ -3,14 +3,16 @@
 Reference/demo distribution for NVIDIA Jetson platforms
 using Yocto Project tools and the [meta-tegra](https://github.com/OE4T/meta-tegra) BSP layer.
 
-![Build status](https://builder.madison.systems/badges/tegrademo-kirkstone.svg)
+![Build status](https://builder.madison.systems/badges/tegrademo-wip-k-35-6-1.svg)
+
+**WORK IN PROGRESS:** Do not use for production.
 
 Metadata layers are brought in as git submodules:
 
 | Layer Repo            | Branch         | Description                                         |
 | --------------------- | ---------------|---------------------------------------------------- |
 | poky                  | kirkstone      | OE-Core from poky repo at yoctoproject.org          |
-| meta-tegra            | kirkstone      | L4T BSP layer - L4T R35.6.0/JetPack 5.1.4           |
+| meta-tegra            | wip-kirkstone-l4t-r35.6.1  | L4T BSP layer - L4T R35.6.1/JetPack 5.1.5           |
 | meta-tegra-community  | kirkstone      | OE4T layer with additions from the community        |
 | meta-openembedded     | kirkstone      | OpenEmbedded layers                                 |
 | meta-virtualization   | kirkstone      | Virtualization layer for docker support             |
