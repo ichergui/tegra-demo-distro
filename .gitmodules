@@ -13,7 +13,7 @@
 [submodule "repos/meta-tegra"]
 	path = repos/meta-tegra
 	url = https://github.com/OE4T/meta-tegra.git
-	branch = kirkstone
+	branch = wip-kirkstone-l4t-r35.6.1
 [submodule "repos/meta-tegra-community"]
 	path = repos/meta-tegra-community
 	url = https://github.com/OE4T/meta-tegra-community
