@@ -6,14 +6,6 @@
 	path = repos/meta-virtualization
 	url = https://git.yoctoproject.org/meta-virtualization
 	branch = master
-[submodule "repos/meta-tegra"]
-	path = repos/meta-tegra
-	url = https://github.com/OE4T/meta-tegra.git
-	branch = master
-[submodule "repos/meta-tegra-community"]
-	path = repos/meta-tegra-community
-	url = https://github.com/OE4T/meta-tegra-community
-	branch = master
 [submodule "repos/bitbake"]
 	path = repos/bitbake
 	url = https://github.com/openembedded/bitbake.git
@@ -22,3 +14,11 @@
 	path = repos/openembedded-core
 	url = https://github.com/openembedded/openembedded-core.git
 	branch = master
+[submodule "repos/meta-tegra"]
+	path = repos/meta-tegra
+	url = https://github.com/ichergui/meta-tegra.git
+	branch = wip-l4t-r39.2.0
+[submodule "repos/meta-tegra-community"]
+	path = repos/meta-tegra-community
+	url = https://github.com/ichergui/meta-tegra-community.git
+	branch = wip-l4t-r39.2.0
